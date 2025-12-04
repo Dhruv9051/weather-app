@@ -1,4 +1,4 @@
-# Weather Lookup App
+# Lookup - Weather App
 
 A modern React weather application that allows users to search for cities, view current weather, 5-day forecasts, and manage favorite locations. Built with context providers, OpenWeatherMap API, and a beautiful UI.
 
@@ -15,6 +15,7 @@ A modern React weather application that allows users to search for cities, view 
 ## Screenshots
 
 ![App Screenshot](public/screenshot.png)
+![App Screenshot](public/screenshot1.png)
 
 ## Technologies Used
 
