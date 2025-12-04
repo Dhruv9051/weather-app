@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Suspense, lazy } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
+import { WeatherProvider } from './context/WeatherContext';
+import Header from './components/Header';
+import SearchSection from './components/SearchSection';
+import CurrentWeather from './components/CurrentWeather';
+import './styles/global.css';
 
-function App() {
+// Lazy Load heavy components
+const Forecast = lazy(() => import('./components/Forecast'));
+const FavoritesList = lazy(() => import('./components/FavouritesList'));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <WeatherProvider>
+        <div className="app-container">
+          <Header />
+          <main className="main-content">
+            <div className="left-panel">
+              <SearchSection />
+              <Suspense>
+                <FavoritesList />
+              </Suspense>
+            </div>           
+            <div className="right-panel">
+              <CurrentWeather />
+              <Suspense>
+                <Forecast />
+              </Suspense>
+            </div>
+          </main>
+        </div>
+      </WeatherProvider>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
