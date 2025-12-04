@@ -4,8 +4,15 @@ import { Droplets, Wind, Star, Gauge } from 'lucide-react';
 import { formatTemp } from './helpers';
 
 const CurrentWeather = () => {
-  const { weather, unit, addFavorite, favorites, removeFavorite } = useContext(WeatherContext);
+  const { weather, unit, addFavorite, favorites, removeFavorite, loading } = useContext(WeatherContext);
 
+  if (loading) {
+    return (
+      <div className="weather-card loading-spinner">
+        <div className="spinner" />
+      </div>
+    );
+  }
   if (!weather) return null;
 
   const isFav = favorites.includes(weather.name);

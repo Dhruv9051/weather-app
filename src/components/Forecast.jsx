@@ -4,8 +4,22 @@ import { formatDate, formatTemp } from './helpers';
 import { Cloud, Sun, Wind } from 'lucide-react';
 
 const Forecast = () => {
-  const { forecast, unit } = useContext(WeatherContext);
+  const { forecast, unit, loading } = useContext(WeatherContext);
 
+  if (loading) {
+    return (
+      <div className="forecast-section animate-slide-up">
+        <h3>5-Day Forecast</h3>
+        <div className="forecast-grid">
+          {Array.from({ length: 5 }).map((_, idx) => (
+            <div key={idx} className="forecast-card">
+              <div className="spinner" style={{ margin: '24px auto' }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   if (!forecast || forecast.length === 0) return null;
 
   return (
