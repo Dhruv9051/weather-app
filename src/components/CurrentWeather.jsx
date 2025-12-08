@@ -4,20 +4,19 @@ import { Droplets, Wind, Star, Gauge } from 'lucide-react';
 import { formatTemp } from './helpers';
 
 const CurrentWeather = () => {
-  const { weather, unit, addFavorite, favorites, removeFavorite, loading } = useContext(WeatherContext);
+  const { weather, unit, addFavorite, favorites, removeFavorite, loading } = useContext(WeatherContext); // Destructure necessary values from WeatherContext
+  
+  if (!weather) return null; // Null check
 
-  if (loading) {
-    return (
+  const isFav = favorites.includes(weather.name); // Check if current city is in favorites
+
+  return (
+    // Conditional rendering based on loading state
+    loading ? (
       <div className="weather-card loading-spinner">
         <div className="spinner" />
       </div>
-    );
-  }
-  if (!weather) return null;
-
-  const isFav = favorites.includes(weather.name);
-
-  return (
+    ) : (
     <div className="weather-card animate-fade-in">
       <div className="card-header">
         <div>
@@ -59,7 +58,7 @@ const CurrentWeather = () => {
         </div>
       </div>
     </div>
-  );
+  ));
 };
 
 export default CurrentWeather;

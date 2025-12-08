@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CloudRain, Sun, Moon } from 'lucide-react';
 import { ThemeContext } from '../context/ThemeContext';
 import { WeatherContext } from '../context/WeatherContext';
 
 const Header = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const { unit, toggleUnit } = useContext(WeatherContext);
+  const { theme, toggleTheme } = useContext(ThemeContext); // Destructure theme and toggleTheme from ThemeContext
+  const { unit, toggleUnit } = useContext(WeatherContext); // Destructure unit and toggleUnit from WeatherContext
 
   return (
     <header className="header">
@@ -17,7 +17,7 @@ const Header = () => {
         <button onClick={toggleUnit} className="unit-toggle">
           °{unit}
         </button>
-        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+        <button onClick={toggleTheme} className="theme-toggle">
           {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
         </button>
       </div>

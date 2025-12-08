@@ -3,10 +3,10 @@ import { ThemeProvider } from './context/ThemeContext';
 import { WeatherProvider } from './context/WeatherContext';
 import Header from './components/Header';
 import SearchSection from './components/SearchSection';
-import CurrentWeather from './components/CurrentWeather';
 import './styles/global.css';
 
 // Lazy Load heavy components
+const CurrentWeather = lazy(() => import('./components/CurrentWeather'));
 const Forecast = lazy(() => import('./components/Forecast'));
 const FavoritesList = lazy(() => import('./components/FavouritesList'));
 
@@ -24,7 +24,9 @@ const App = () => {
               </Suspense>
             </div>           
             <div className="right-panel">
-              <CurrentWeather />
+              <Suspense>
+                <CurrentWeather/>
+              </Suspense>
               <Suspense>
                 <Forecast />
               </Suspense>

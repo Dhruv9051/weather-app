@@ -3,9 +3,9 @@ import { MapPin, X } from 'lucide-react';
 import { WeatherContext } from '../context/WeatherContext';
 
 const FavoritesList = () => {
-  const { favorites, removeFavorite, setCity } = useContext(WeatherContext);
+  const { favorites, removeFavorite, setCity } = useContext(WeatherContext); // Destructure necessary values from WeatherContext
 
-  if (favorites.length === 0) return null;
+  if (favorites.length === 0) return null; // Return null if no favorites
 
   return (
     <div className="favorites-section">
