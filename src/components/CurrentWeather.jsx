@@ -25,7 +25,6 @@ const CurrentWeather = () => {
         </div>
         <button 
           onClick={() => isFav ? removeFavorite(weather.name) : addFavorite(weather.name)}
-          className={`fav-btn ${isFav ? 'active' : ''}`}
         >
           <Star size={24} fill={isFav ? "gold" : "none"} stroke={isFav ? "gold" : "currentColor"} />
         </button>
