@@ -46,15 +46,15 @@ const CurrentWeather = () => {
       <div className="weather-details">
         <div className="detail-item">
           <Droplets size={18} />
-          <span>Humidity: {weather.main.humidity}%rh</span>
+          <span>Humidity: {weather.main.humidity} %</span>
         </div>
         <div className="detail-item">
           <Wind size={18} />
-          <span>Wind: {weather.wind.speed} km/h</span>
+            <span>Wind: {weather.wind.speed} {unit === 'F' ? 'm/s' : 'km/h'}</span>
         </div>
         <div className="detail-item">
           <Gauge size={18} />
-          <span>Pressure: {weather.main.pressure} p</span>
+          <span>Pressure: {weather.main.pressure} hpa</span>
         </div>
       </div>
     </div>
