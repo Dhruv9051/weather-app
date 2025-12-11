@@ -15,8 +15,10 @@ export const ThemeProvider = ({ children }) => {
 
   // Effect to apply theme class to document root element
   useEffect(() => {
-    // Update document's data-theme attribute for CSS theming
-    document.documentElement.dataset.theme = theme;
+    // Remove both possible theme classes first
+    document.documentElement.classList.remove('theme-light', 'theme-dark');
+    // Add the current theme class
+    document.documentElement.classList.add(`theme-${theme}`);
   }, [theme]);
 
   // Context value memoization to prevent unnecessary re-renders unless dependencies change

@@ -1,4 +1,4 @@
-:root {
+.theme-light {
   /* Light Theme Variables */
   --bg-primary: #f0f4f8;
   --bg-card: #ffffff;
@@ -11,7 +11,7 @@
   --input-bg: #ffffff;
 }
 
-[data-theme='dark'] {
+.theme-dark {
   /* Dark Theme Variables */
   --bg-primary: #1a202c;
   --bg-card: #2d3748;
@@ -32,7 +32,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
